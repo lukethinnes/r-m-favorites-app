@@ -1,11 +1,17 @@
 import React from 'react'
 
-export default function Card(props){
+export default function Card({ character, clickAction }) {
 
-    return (
-        <li>
-          <h2>Name</h2>
-          <img src={} alt="character-image"/>
-        </li>
-    )
+  const { name, image } = character
+
+  const handleClick = (event) => {
+    clickAction(character)
+  }
+
+  return (
+    <li onClick={handleClick}>
+      <h2>{name}</h2>
+      <img src={image} alt={character.name} />
+    </li>
+  )
 }
